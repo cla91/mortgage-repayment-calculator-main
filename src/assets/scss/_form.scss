@@ -1,0 +1,50 @@
+@use "./mixin";
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 6);
+  padding-inline: calc(var(--spacing) * 6);
+  padding-block: calc(var(--spacing) * 8);
+  @include mixin.breakpoint(md) {
+    padding: calc(var(--spacing) * 10);
+    gap: calc(var(--spacing) * 10);
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 2);
+    align-items: start;
+    @include mixin.breakpoint(md) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      color: var(--color-neutral-700);
+      text-decoration: underline;
+      font-weight: var(--medium);
+      &:hover {
+        color: var(--color-neutral-900);
+      }
+    }
+  }
+  h2 {
+    color: var(--color-neutral-900);
+  }
+}
+.form-fields-container {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 6);
+}
+.middle-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing) * 2);
+  @include mixin.breakpoint(md) {
+    flex-direction: row;
+    gap: calc(var(--spacing) * 6);
+  }
+}

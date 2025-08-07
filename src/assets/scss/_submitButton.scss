@@ -1,0 +1,25 @@
+@use "./mixin";
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spacing) * 3);
+  background-color: var(--color-accent);
+  border-radius: 999rem;
+  color: var(--color-neutral-900);
+  font-size: 1.8rem;
+  line-height: 1.25;
+  font-weight: bold;
+  padding-inline: calc(var(--spacing) * 10);
+  height: 5.6rem;
+  &:hover {
+    background-color: hsla(61, 70%, 52%, 0.5);
+  }
+  &:focus {
+    outline: 0.2rem solid var(--color-neutral-900);
+  }
+  @include mixin.breakpoint(md) {
+    align-self: start;
+  }
+}

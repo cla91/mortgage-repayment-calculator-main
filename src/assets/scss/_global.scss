@@ -1,0 +1,76 @@
+@use "./mixin";
+
+html {
+  @include mixin.breakpoint(lg) {
+    height: 100%;
+  }
+}
+body {
+  font-family: var(--font-jakarta);
+  font-weight: var(--medium);
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-300);
+  line-height: 1.5;
+  font-size: 1.6rem;
+
+  @include mixin.breakpoint(md) {
+    padding: calc(var(--spacing) * 10);
+  }
+  @include mixin.breakpoint(lg) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
+    gap: calc(var(--spacing) * 4);
+  }
+}
+h2 {
+  font-weight: bold;
+  line-height: 1.25;
+  font-size: 2.4rem;
+}
+main {
+  @include mixin.breakpoint(lg) {
+    display: flex;
+    justify-content: center;
+  }
+}
+article {
+  background-color: var(--color-neutral-0);
+  overflow: hidden;
+  @include mixin.breakpoint(md) {
+    border-radius: calc(var(--spacing) * 6);
+  }
+  @include mixin.breakpoint(lg) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100.8rem;
+  }
+}
+
+section {
+  background-color: var(--color-neutral-900);
+}
+
+input[type="text"],
+input[type="radio"] {
+  appearance: none;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+button {
+  cursor: pointer;
+}
+footer {
+  text-align: center;
+  color: var(--color-neutral-700);
+  a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    &:hover {
+      color: var(--color-neutral-900);
+    }
+  }
+}

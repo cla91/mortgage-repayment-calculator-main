@@ -1,13 +1,100 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mortgage repayment calculator main</title>
+
+</head>
+
+<body>
+  <main>
+    <article>
+      <form novalidate>
+        <header>
+          <h2>Mortgage Calculator</h2>
+          <button type="reset">Clear
+            All</button>
+        </header>
+        <div class="form-fields-container">
+
+          <label class="text-input_label">
+            Mortgage Amount
+            <span class="text-input_container">
+              <span class="text-input_span">£</span>
+              <input class="text-input_number" aria-describedby="amountError" aria-invalid="false" type="text"
+                pattern="[0-9]+" name="amount" inputmode="numeric" required>
+            </span>
+            <p id="amountError" role="alert" aria-live="polite" class="error-message sr-only"></p>
+          </label>
+          <div class="middle-field-container">
+
+            <label class="text-input_label">
+              Mortgage Term
+              <span class="text-input_container">
+                <span class="text-input_span">years</span>
+                <input class="text-input_number" aria-describedby="termError" pattern="[0-9]+" aria-invalid="false"
+                  type="text" name="term" inputmode="numeric" required>
+              </span>
+              <p id="termError" role="alert" aria-live="polite" class="error-message sr-only"></p>
+            </label>
+            <label class="text-input_label">
+              Interest Rate
+              <span class="text-input_container">
+                <span class="text-input_span">%</span>
+                <input class="text-input_number" pattern="[0-9.]+" aria-describedby="interestError" aria-invalid="false"
+                  type="text" name="interest" inputmode="decimal" required>
+              </span>
+              <p id="interestError" role="alert" aria-live="polite" class="error-message sr-only"></p>
+            </label>
+          </div>
+          <div role="group" aria-labelledby="legend" class="radio-container">
+            <p id="legend">Mortgage Type</p>
+            <label class="radio-label"><input aria-describedby="typeError" aria-invalid="false" type="radio"
+                name="mortgage-type" value="repayment" required>Repayment</label>
+            <label class="radio-label"><input aria-describedby="typeError" aria-invalid="false" type="radio"
+                name="mortgage-type" value="interest-only">Interest
+              Only</label>
+            <p id="typeError" role="alert" aria-live="polite" class="error-message sr-only"></p>
+
+          </div>
+        </div>
+        <button class="submit-btn" type="submit"><img src="./src/assets/images/icon-calculator.svg" alt="">Calculate
+          Repayments</button>
+      </form>
+      <section class="results-container" aria-live="assertive">
+        <!-- Empty results start -->
+        <div class="results-empty">
+          <img src="./src/assets/images/illustration-empty.svg" alt="">
+          <h2>Results shown here</h2>
+          <p>Complete the form and click “calculate repayments” to see what
+            your monthly repayments would be.</p>
+        </div>
+        <!-- Empty results end -->
+        <!-- Completed results start -->
+        <div class="results-full hidden">
+          <h2>Your results</h2>
+          <p>Your results are shown below based on the information you provided.
+            To adjust the results, edit the form and click “calculate repayments” again.</p>
+          <div>
+            <p>Your monthly repayments <span data-monthly-repayments></span></p>
+            <hr>
+            <p><span><span data-payments-type>Total</span> you'll repay over the term </span><span
+                data-full-repayments></span></p>
+          </div>
+        </div>
+        <!-- Completed results end -->
+      </section>
+    </article>
+  </main>
+  <footer>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend
+      Mentor</a>.
+    Coded by <a href="https://cla91.github.io/">Claudia Cantiani</a>.
+  </footer>
+  <script type="module" src="/src/assets/js/main.js"></script>
+</body>
+
 </html>

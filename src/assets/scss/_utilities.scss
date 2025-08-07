@@ -1,0 +1,31 @@
+.hidden {
+  display: none;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  border: none;
+}
+.error-message {
+  color: var(--color-error) !important;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: var(--medium);
+}
+.text-input_label.error {
+  & .text-input_container {
+    border-color: var(--color-error);
+  }
+  & .text-input_span {
+    background-color: var(--color-error);
+    color: var(--color-neutral-0);
+  }
+}
+.active {
+  border-color: var(--color-accent);
+  background-color: hsla(61, 70%, 52%, 0.15);
+}
